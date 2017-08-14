@@ -21,6 +21,7 @@ Plugin 'w0rp/ale'
 Plugin 'Valloric/MatchTagAlways'
 Plugin 'Raimondi/delimitMate'
 Plugin 'tpope/vim-endwise'
+Plugin 'tpope/vim-rails'
 
 
 " All of your Plugins must be added before the following line
@@ -58,6 +59,9 @@ set expandtab
 set tabstop=2 shiftwidth=2 softtabstop=2
 set autoindent
 
+"allows indentation by syntax
+set smartindent
+
 "displays persistent full file path and name
 set laststatus=2
 set statusline=%<%F\ %h%m%r%y%=%-14.(%l,%c%V%)\ %P
@@ -70,6 +74,8 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L> 
 "Ctrl-h to move left a split  
 nnoremap <C-H> <C-W><C-H> 
+"Ctrl-m to maximize a pane
+nnoremap <C-W>m <C-W>|
 
 map <Enter> i<Enter><ESC>
 map <Space> :
@@ -106,3 +112,6 @@ augroup vimrc
   au BufReadPre * setlocal foldmethod=indent
   au BufWinEnter * if &fdm == 'indent' | setlocal foldmethod=manual | endif
 augroup END
+
+"expand carriage returns (for js)
+let delimitMate_expand_cr=1
